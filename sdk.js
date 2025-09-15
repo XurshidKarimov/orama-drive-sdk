@@ -1,8 +1,8 @@
 (function (global) {
   'use strict';
 
-  var SERVICE_ORIGIN = 'https://f1c0102028d9.ngrok-free.app';
-  var IFRAME_URL = SERVICE_ORIGIN + '/service';
+  var SERVICE_ORIGIN = 'https://4802b2fca850.ngrok-free.app/';
+  var IFRAME_URL = SERVICE_ORIGIN + 'service';
 
   function createIframe(container) {
     var iframe = document.createElement('iframe');
