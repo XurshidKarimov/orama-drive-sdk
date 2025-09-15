@@ -8,7 +8,7 @@
     var iframe = document.createElement('iframe');
     iframe.src = IFRAME_URL;
     iframe.style.width = '100%';
-    iframe.style.height = '600px';
+    iframe.style.height = '100%';
     iframe.style.border = 'none';
 
     if (!container) {
