@@ -1,0 +1,17 @@
+{
+  "name": "orama-drive-sdk",
+  "version": "1.0.0",
+  "description": "Orama Drive Embed SDK",
+  "main": "sdk.js",
+  "files": [
+    "sdk.js"
+  ],
+  "keywords": [
+    "orama",
+    "sdk",
+    "embed",
+    "iframe"
+  ],
+  "author": "Xurshid Karimov",
+  "license": "MIT"
+}
