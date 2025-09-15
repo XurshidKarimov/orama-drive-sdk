@@ -48,6 +48,9 @@
     var iframe = createIframe(container);
 
     window.addEventListener('message', function (event) {
+
+      console.log(event.origin, SERVICE_ORIGIN);
+
       if (event.origin !== SERVICE_ORIGIN) return;
       if (!event.data || typeof event.data.type !== 'string') return;
 
