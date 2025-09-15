@@ -1,7 +1,7 @@
 (function (global) {
   'use strict';
 
-  var SERVICE_ORIGIN = 'https://4802b2fca850.ngrok-free.app/';
+  var SERVICE_ORIGIN = 'https://drive.orama.uz/';
   var IFRAME_URL = SERVICE_ORIGIN + 'service';
 
   function createIframe(container) {
