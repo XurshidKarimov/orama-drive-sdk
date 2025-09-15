@@ -1,8 +1,8 @@
 (function (global) {
   'use strict';
 
-  var SERVICE_ORIGIN = 'https://your-service.com';
-  var IFRAME_URL = SERVICE_ORIGIN + '/embed';
+  var SERVICE_ORIGIN = 'https://f1c0102028d9.ngrok-free.app';
+  var IFRAME_URL = SERVICE_ORIGIN + '/service';
 
   function createIframe(container) {
     var iframe = document.createElement('iframe');
@@ -11,7 +11,10 @@
     iframe.style.height = '600px';
     iframe.style.border = 'none';
 
-    if (typeof container === 'string') {
+    if (!container) {
+      // Если контейнер не передан → вставляем в body
+      document.body.appendChild(iframe);
+    } else if (typeof container === 'string') {
       var target = document.querySelector(container);
       if (!target) {
         throw new Error('Container element not found: ' + container);
@@ -20,7 +23,7 @@
     } else if (container instanceof HTMLElement) {
       container.appendChild(iframe);
     } else {
-      throw new Error('Container must be a selector or DOM element');
+      throw new Error('Container must be a selector, DOM element or undefined');
     }
 
     return iframe;
@@ -32,7 +35,7 @@
     }
     var apiKey = config.apiKey;
     var user = config.user;
-    var container = config.container;
+    var container = config.container || null; // можно не указывать
     var onReady = config.onReady;
 
     if (!apiKey) {
@@ -40,9 +43,6 @@
     }
     if (!user || !user.externalId) {
       throw new Error('user.externalId is required');
-    }
-    if (!container) {
-      throw new Error('container is required');
     }
 
     var iframe = createIframe(container);
