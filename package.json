@@ -1,6 +1,6 @@
 {
   "name": "orama-drive-sdk",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Orama Drive Embed SDK",
   "main": "sdk.js",
   "files": [
