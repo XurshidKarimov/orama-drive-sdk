@@ -1,17 +1,19 @@
-name: Publish SDK to npm
+name: Auto Release & Publish SDK
 
 on:
   push:
-    tags:
-      - "v*"   # запуск при пуше тега v1.0.0, v1.0.1 и т.д.
+    branches:
+      - main   # запуск при пуше в main
 
 jobs:
-  publish:
+  release:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -21,6 +23,13 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+
+      - name: Bump version & create tag
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          npm run release -- --release-as patch
+          git push --follow-tags origin main
 
       - name: Publish to npm
         run: npm publish --access public

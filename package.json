@@ -13,5 +13,11 @@
     "iframe"
   ],
   "author": "Xurshid Karimov",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "standard-version": "^9.5.0"
+  },
+  "scripts": {
+    "release": "standard-version"
+  }
 }
